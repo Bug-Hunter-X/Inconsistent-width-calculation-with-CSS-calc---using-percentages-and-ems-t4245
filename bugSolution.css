@@ -1,0 +1,13 @@
+The solution to this issue is to avoid mixing percentage and absolute units within `calc()` whenever possible.  A more reliable approach is to use relative units like `vw` (viewport width) which are directly proportional to the viewport width and thereby provide more consistent results across different browser and viewport contexts.
+
+```css
+.container {
+  width: 50vw;
+}
+
+.element {
+  width: calc(50vw - 1vw);
+}
+```
+
+This revised CSS uses `vw` units to define both the width of the container and the adjustment within the `calc()` function. This approach helps to avoid the inconsistencies related to the interpretation of `em` values and percentage calculations in relation to different font sizes.
