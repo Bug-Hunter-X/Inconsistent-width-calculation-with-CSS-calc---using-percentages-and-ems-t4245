@@ -1,0 +1,13 @@
+The following CSS code snippet demonstrates an issue with unexpected behavior when using the `calc()` function with percentages and the `em` unit.
+
+```css
+.container {
+  width: 50%;
+}
+
+.element {
+  width: calc(50% - 1em);
+}
+```
+
+The intention is to make `.element` 1em narrower than half the width of its parent container.  However, the `calc()` function might not always calculate correctly, especially when dealing with the mix of percentage and absolute units, potentially leading to unexpected results and layout inconsistencies across different browsers or viewport sizes.  The browser might calculate 1em based on a different font size that was not anticipated, making the element smaller or larger than intended.
